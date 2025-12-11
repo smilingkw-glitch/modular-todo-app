@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Todo App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <main>
+    <h2>Welcome to Todo App</h2>
+    <p>Manage your tasks efficiently. <a href="signup.html">Sign up</a> or <a href="login.html">Log in</a> to get started.</p>
+  </main>
+  <div id="footer"></div>
+  <script type="module">
+    import { createNavbar } from './js/navbar.js';
+    import { createFooter } from './js/footer.js';
+    document.getElementById('navbar').appendChild(createNavbar());
+    document.getElementById('footer').appendChild(createFooter());
+  </script>
+</body>
+</html>
