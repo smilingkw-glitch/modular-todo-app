@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Todo App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <main>
+    <div class="form-container">
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script type="module">
+    import { createNavbar } from './js/navbar.js';
+    import { createFooter } from './js/footer.js';
+    import { signup } from './js/auth.js';
+    document.getElementById('navbar').appendChild(createNavbar());
+    document.getElementById('footer').appendChild(createFooter());
+    document.getElementById('signup-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const result = signup(email, password);
+      alert(result.message);
+      if (result.success) window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
