@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos - Todo App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <main>
+    <h2>Your Todos</h2>
+    <div id="todos-container"></div>
+  </main>
+  <div id="footer"></div>
+  <script type="module">
+    import { createNavbar } from './js/navbar.js';
+    import { createFooter } from './js/footer.js';
+    import { isLoggedIn } from './js/auth.js';
+    import { fetchAndDisplayTodos } from './js/todos.js';
+    if (!isLoggedIn()) {
+      window.location.href = 'login.html';
+    }
+    document.getElementById('navbar').appendChild(createNavbar());
+    document.getElementById('footer').appendChild(createFooter());
+    fetchAndDisplayTodos();
+  </script>
+</body>
+</html>
